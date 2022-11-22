@@ -1,10 +1,10 @@
-Package: package625
+Package: cor_test_625
 Type: Package
-Title: 625 Test Package
+Title: Correlation
 Version: 0.1.0
 Author: Flynn McMorrow
 Maintainer: Flynn McMorrow <flynnmc@umich.edu>
-Description: Testing R Package Upload for 625
+Description: Correlation Package for Spearman, Kendall & Pearson Correlations
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
