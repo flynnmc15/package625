@@ -1,17 +1,17 @@
-#' Title
+#' Correlation Package
 #'
-#' @param x A numerical vector
-#' @param y A numerical vector
-#' @param method Method used to calculate correlation value
+#' @param x A numerical vector.
+#' @param y A numerical vector.
+#' @param method Method used to calculate correlation value. Methods include Pearson, Spearman, Kendall, All. Default is Pearson.
 #'
-#' @return A numerical vector of one containing the correlation value
+#' @return A numerical vector of one containing the correlation value (All creates a 1x3 data frame containing all 3 values).
 #' @export
 #'
 #' @examples
 #' x <- c(6, 12, 13, 17, 22, 25, 27, 29, 30, 32)
 #' y <- c(45, 47, 39, 58, 68, 76, 75, 74, 78, 81)
-#' cor_test_625(x, y, method = "pearson")
-cor_test_625 = function(x, y, method = "pearson") {
+#' cortest625(x, y, method = "pearson")
+cortest625 = function(x, y, method = "pearson") {
 
   #Calculating Pearson Correlation
   pearson_cor = function(x, y) {
