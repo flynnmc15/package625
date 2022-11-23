@@ -89,6 +89,7 @@ Plotting cortest625() performance vs cor() performance (Kendall Rank Correlation
 ```{r, echo = FALSE}
 plot(kendall_bench)
 ```
+
 Using all.equal to prove equivalence
 ```{r}
 set.seed(185)
