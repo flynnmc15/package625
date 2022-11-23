@@ -20,14 +20,14 @@ A numerical vector of one containing the correlation value (All creates a 1x3 da
 Correlation Package
 }
 \examples{
-Creating two numerical vectors
+#Creating numerical vectors:
 x <- c(6, 12, 13, 17, 22, 25, 27, 29, 30, 32)
 y <- c(45, 47, 39, 58, 68, 76, 75, 74, 78, 81)
 cortest625(x, y, method = "pearson")
 
-Using the mtcars dataset
+#Using the mtcars dataset:
 cortest625(mtcars$mpg, mtcars$drat, method = "spearman")
 
-Randomly generating data
+#Randomly generating data:
 cortest625(rnorm(100), rnorm(100), method = "kendall")
 }

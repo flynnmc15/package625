@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 library(cortest625)
 ```
 
-Start with two equal numerical vectors
+#Start with two equal numerical vectors
 ```{r}
 set.seed(18465)
 x <- rnorm(50)
@@ -34,14 +34,14 @@ cortest625(x, y, method = "spearman")
 cor(x, y, method = "spearman")
 ```
 
-Using cortest625 with data from mtcars dataset
+#Using cortest625 with data from mtcars dataset
 ```{r}
 cortest625(mtcars$disp, mtcars$hp) #Pearson is the default
 cortest625(mtcars$disp, mtcars$hp, method = "spearman")
 cortest625(mtcars$disp, mtcars$hp, method = "kendall")
 ```
 
-Checking median speed of cor() vs cortest625() via Pearson Correlation Coefficient
+#Checking median speed of cor() vs cortest625() via Pearson Correlation Coefficient
 ```{r}
 set.seed(21)
 x <- rnorm(50)
@@ -55,12 +55,12 @@ pearson_bench = bench:::mark(
 print(pearson_bench$median)
 ```
 
-Plotting cortest625() performance vs cor() performance (Pearson)
+#Plotting cortest625() performance vs cor() performance (Pearson)
 ```{r, echo=FALSE}
 plot(pearson_bench)
 ```
 
-Checking median speed of cor() vs cortest625() via Spearman Rank Correlation
+#Checking median speed of cor() vs cortest625() via Spearman Rank Correlation
 ```{r, echo = FALSE}
 #Spearman Benchmark
 spearman_bench = bench:::mark(
@@ -70,12 +70,12 @@ spearman_bench = bench:::mark(
 print(spearman_bench$median)
 ```
 
-Plotting cortest625() performance vs cor() performance (Spearman Rank Correlation)
+#Plotting cortest625() performance vs cor() performance (Spearman Rank Correlation)
 ```{r, echo = FALSE}
 plot(spearman_bench)
 ```
 
-Checking median speed of cor() vs cortest625() via Kenall Rank Correlation
+#Checking median speed of cor() vs cortest625() via Kenall Rank Correlation
 ```{r, echo = FALSE}
 #Kendall Benchmark
 kendall_bench = bench:::mark(
@@ -85,16 +85,17 @@ kendall_bench = bench:::mark(
 print(kendall_bench$median)
 ```
 
-Plotting cortest625() performance vs cor() performance (Kendall Rank Correlation)
+#Plotting cortest625() performance vs cor() performance (Kendall Rank Correlation)
 ```{r, echo = FALSE}
 plot(kendall_bench)
 ```
 
-Using all.equal to prove equivalence
+#Using all.equal to prove equivalence
 ```{r}
 set.seed(185)
 x <- rnorm(100)
 y <- rnorm(100)
+?bench
 
 #Showing Spearman is Equal
 all.equal(
