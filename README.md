@@ -1,7 +1,38 @@
 # package625
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/flynnmc15/package625/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/flynnmc15/package625/actions/workflows/R-CMD-check.yaml)
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 <!-- badges: end -->
 
 # cortest625() - A Correlation Package
-A package to calculate the correlation coefficient between two vectors of data using 3 different methods: Spearman's rank correlation coefficient, Kendall rank correlation coefficient and Pearson correlation coefficient.
+
+## Project Description
+An R package to calculate the correlation coefficient between two vectors of data using 3 different methods: Spearman's rank correlation coefficient, Kendall rank correlation coefficient and Pearson correlation coefficient. All 3 methods were coded from scratch as their own function and implemented into the larger cortest625 function that allows choosing between all 3 methods. A final method called 'all' is also included as an option which gives the output from all 3 methods in a data frame. Future versions of this package will focus more on formatting output, including more output description and including other calculations such as p-values. 
+
+### Installation
+```
+githubinstall("cortest625")
+library(cortest625)
+```
+
+### Examples
+1) Creating Two Numerical Vectors:
+```
+x <- c(6, 12, 13, 17, 22, 25, 27, 29, 30, 32)
+y <- c(45, 47, 39, 58, 68, 76, 75, 74, 78, 81)
+cortest625(x, y, method = "pearson")
+```
+
+2) Using the mtcars Dataset:
+```
+cortest625(mtcars$mpg, mtcars$drat, method = "spearman")
+```
+
+3) Randomly Generating Data:
+```
+cortest625(rnorm(100), rnorm(100), method = "kendall")
+```
+
+### Credits
+Thank you to Professor Jiang and Jingyi Zhai in BIOSTAT 625 for the knowledge on building R packages and hosting them on Github.
