@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(cortest625)
+library(bench)
 ```
 
 Start with two equal numerical vectors
