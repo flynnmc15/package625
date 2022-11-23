@@ -8,9 +8,16 @@
 #' @export
 #'
 #' @examples
+#' Creating two numerical vectors
 #' x <- c(6, 12, 13, 17, 22, 25, 27, 29, 30, 32)
 #' y <- c(45, 47, 39, 58, 68, 76, 75, 74, 78, 81)
 #' cortest625(x, y, method = "pearson")
+#'
+#' Using the mtcars dataset
+#' cortest625(mtcars$mpg, mtcars$drat, method = "spearman")
+#'
+#' Randomly generating data
+#' cortest625(rnorm(100), rnorm(100), method = "kendall")
 cortest625 = function(x, y, method = "pearson") {
 
   #Calculating Pearson Correlation
@@ -18,7 +25,8 @@ cortest625 = function(x, y, method = "pearson") {
     x_diff <- sapply(1:length(x), function(i) x[i] - mean(x))
     y_diff <- sapply(1:length(x), function(i) y[i] - mean(y))
     den <- sum(x_diff^2) * sum(y_diff^2)
-    return((sum(x_diff*y_diff)/(sqrt(den))))
+    num <- sum(x_diff*y_diff)
+    return((num/(sqrt(den))))
   }
 
   #Calculating Kendall Tau
@@ -35,7 +43,7 @@ cortest625 = function(x, y, method = "pearson") {
 
   #Calculating Spearman Correlation
   spearman_cor = function(x, y) {
-    num <- sum((order(x) - order(y))^2)
+    num <- sum(abs((rank(-x) - rank(-y))^2))
     den <- (length(x)*(length(x)^2-1))
     return(1 - (6*num)/den)
   }
@@ -63,3 +71,4 @@ cortest625 = function(x, y, method = "pearson") {
 
   }
 }
+
